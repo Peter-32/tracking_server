@@ -1,6 +1,9 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def hello_world():
-    return 'Hello, World!'
+    if request.method == 'POST':
+        number = request.form['number']
+
+        return 'Hello, World!'
